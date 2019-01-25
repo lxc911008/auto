@@ -95,8 +95,7 @@
 
 <script>
 
-    //ajax请求方法
-    function ajaxMethod(requestPath){
+    function getData(){
 
         var cjlj = $("#cjlj").val(); //创建路径
         var wjjm = $("#wjjm").val(); //文件夹名
@@ -111,6 +110,10 @@
             "zjhm" : zjhm,
             "ysjlj" : ysjlj
         };
+    }
+
+    //ajax请求方法
+    function ajaxMethod(requestPath,data){
 
         $.ajax({
 
@@ -147,7 +150,9 @@
         $("#cjwj").click(function(){
 
             if(confirm("是否确认创建？")){
-                ajaxMethod("/auto/cjwj");
+
+                var data = getData();
+                ajaxMethod("/auto/cjwj",data);
             }
 
 
@@ -158,7 +163,9 @@
         $("#jz").click(function(){
 
             if(confirm("是否确认创建？")){
-                ajaxMethod("/auto/jz");
+
+                var data = getData();
+                ajaxMethod("/auto/jz",data);
             }
 
 
@@ -168,7 +175,9 @@
         $("#cjwjbjz").click(function(){
 
             if(confirm("是否确认创建？")){
-                ajaxMethod("/auto/cjwjbjz");
+
+                var data = getData();
+                ajaxMethod("/auto/cjwjbjz",data);
             }
 
         })

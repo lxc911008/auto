@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" id="myHtml">
+<head>
+    <meta charset="UTF-8">
+    <title>获取网站文件</title>
+    <script src="/jquery/jquery-3.3.1.min.js"></script>
+    <link href="/busy-load/app.min.css" rel="stylesheet">
+    <script src="/busy-load/app.min.js"></script>
+
+    <style>
+        html,body{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+
+    <tr>
+        <td>姓名：</td>
+        <td><input id="name"></td>
+
+    </tr>
+
+    <tr>
+
+        <td>
+            <button id="submitBtn">提交</button>
+        </td>
+
+    </tr>
+
+</table>
+
+</body>
+</html>
+<script>
+
+    $(function(){
+
+        //提交获取压缩包下载
+        $("#submitBtn").click(function(){
+
+            var inps = document.getElementsByTagName("input");
+
+            var form = document.createElement('form');
+            form.id = 'form';
+            form.name = 'form';
+            document.body.appendChild (form);
+
+            for (var i in inps) {
+                var input = document.createElement('input');
+                input.tpye='hidden';
+                input.name = inps[i].id;
+                input.value = inps[i].value;
+                form.appendChild(input);
+            }
+            form.method = "post"; //请求方式
+            form.action = "/create/do"; //请求地址
+            form.submit();
+            document.body.removeChild(form);
+
+        })
+
+
+    })
+
+
+
+
+</script>
