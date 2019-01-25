@@ -205,7 +205,7 @@ public class CjwzService {
         robot.delay(1000);
 
         keyDown(robot,KeyEvent.VK_ENTER);
-        robot.delay(3000);
+        robot.delay(2000);
 
     }
 
